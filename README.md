@@ -32,7 +32,8 @@ Esse projeto foi desenvolvido utilizando
 ```
 2. Abra o projeto no Visual Studio 2022
 3. Execute com `F5` ou `Ctrl + F5`
-4. Você será levado até a página inicial onde poderá escolher entre, editar uma lista da qual participe ou criar uma nova.
+4. Em seu primeiro acesso, crie login e senha para acessar.
+5. Você será levado até a página inicial onde poderá escolher entre, editar uma lista da qual participe ou criar uma nova.
 
 
 ##  Público-alvo
