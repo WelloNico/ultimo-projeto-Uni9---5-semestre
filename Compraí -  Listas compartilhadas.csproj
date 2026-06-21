@@ -9,9 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\NovaPasta1\**" />
+    <Compile Remove="wwwroot\css\assets\menu lateral\**" />
     <Content Remove="Views\NovaPasta1\**" />
+    <Content Remove="wwwroot\css\assets\menu lateral\**" />
     <EmbeddedResource Remove="Views\NovaPasta1\**" />
+    <EmbeddedResource Remove="wwwroot\css\assets\menu lateral\**" />
     <None Remove="Views\NovaPasta1\**" />
+    <None Remove="wwwroot\css\assets\menu lateral\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\assets\login\" />
+    <Folder Include="wwwroot\css\assets\inicial\" />
   </ItemGroup>
 
 </Project>

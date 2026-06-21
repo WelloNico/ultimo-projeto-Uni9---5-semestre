@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 html {
   font-size: 14px;
 }
@@ -18,7 +25,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background: #2A2D34;
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 0;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +37,61 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*LAYOUT PADRÃO (SIDEBAR)*/
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 60px;
+    background: #1e2128;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.sidebar-top, .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.sidebar-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+    .sidebar-icon:hover, .sidebar-icon.active {
+        opacity: 1;
+    }
+
+    .sidebar-icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+.main-content {
+    margin-left: 60px;
+    flex: 1;
+    padding: 24px;
 }
