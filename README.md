@@ -37,4 +37,4 @@ Esse projeto foi desenvolvido utilizando
 
 ##  Público-alvo
 
-Grupos que realizam compras coletivas de forma recorrente — famílias, repúblicas estudantis, equipes de trabalho ou mesmo grupos que estejam planejando festas ou viagens.
+Grupos que realizam compras coletivas — famílias, repúblicas estudantis, equipes de trabalho ou mesmo grupos que estejam planejando festas ou viagens.
