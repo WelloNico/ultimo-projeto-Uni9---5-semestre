@@ -1,0 +1,157 @@
+﻿
+/* Página */
+body {
+    background-color: #2A2D34;
+}
+
+/* Container principal */
+
+.criar-lista-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Título */
+
+.page-title {
+    color: #E5E7EB;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #B8BCC5;
+    margin-bottom: 25px;
+}
+
+/* Card */
+
+.lista-card {
+    background-color: #3A3F47;
+    border-radius: 24px;
+    padding: 35px;
+}
+
+    /* Labels */
+
+    .lista-card label {
+        color: #FFFFFF;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    /* Inputs */
+
+    .lista-card .form-control {
+        background-color: transparent;
+        border: 1px solid rgba(255,255,255,0.4);
+        color: #FFFFFF;
+        border-radius: 10px;
+        height: 48px;
+    }
+
+        .lista-card .form-control:focus {
+            background-color: transparent;
+            color: #FFFFFF;
+            border-color: #ffffff;
+            box-shadow: none;
+        }
+
+/* Cabeçalhos */
+
+.section-title {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    color: #C9CDD4;
+    margin-bottom: 20px;
+}
+
+.Cadastro_itens {
+    border-radius: 10px;
+}
+
+/* Tabela */
+#tabelaProdutos {
+    color: #FFFFFF;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+    #tabelaProdutos thead tr {
+        background-color: #2F333A;
+        border-radius: 12px;
+    }
+
+    #tabelaProdutos thead th {
+        color: #FFFFFF;
+        border: none;
+        padding: 15px;
+        font-weight: 600;
+    }
+
+    #tabelaProdutos tbody td {
+        background: transparent;
+        border: none;
+        vertical-align: middle;
+        padding: 6px;
+    }
+
+    /* Inputs da tabela */
+
+    #tabelaProdutos .form-control {
+        height: 44px;
+    }
+
+/* Botão adicionar */
+
+.btn-adicionar {
+    background-color: transparent;
+    border: 2px solid #29FF57;
+    color: #29FF57;
+    border-radius: 50px;
+    padding: 10px 28px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+    .btn-adicionar:hover {
+        background-color: #29FF57;
+        color: #2A2D34;
+    }
+
+/* Botão salvar */
+
+.btn-salvar {
+    background-color: #29FF57;
+    border: none;
+    color: #2A2D34;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 30px;
+}
+
+    .btn-salvar:hover {
+        opacity: 0.9;
+    }
+
+/* Botão remover */
+
+.btn-remover {
+    background: transparent;
+    border: none;
+    color: #29FF57;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+    .btn-remover:hover {
+        opacity: 0.7;
+    }

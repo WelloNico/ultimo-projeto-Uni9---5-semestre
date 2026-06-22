@@ -1,47 +1,47 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Compraí</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    @await RenderSectionAsync("Styles", required: false)
-</head>
-<body>
-    <div class="app-wrapper">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Compraí</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        @await RenderSectionAsync("Styles", required: false)
+    </head>
+    <body>
+        <div class="app-wrapper">
 
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <a asp-controller="Inicial" asp-action="Index" class="sidebar-icon active">
-                    <img src="~/css/assets/menu-lateral/LogoApp.svg" alt="Home" />
-                </a>
-                <a asp-controller="Lista" asp-action="Index" class="sidebar-icon">
-                    <img src="~/css/assets/menu-lateral/IconeListasArquivadas.svg" alt="Listas" />
-                </a>
-                <a asp-controller="Lista" asp-action="Arquivadas" class="sidebar-icon">
-                    <img src="~/css/assets/menu-lateral/IconeEditaPadrao.svg" alt="Arquivadas" />
-                </a>
-            </div>
-            <div class="sidebar-bottom">
-                <a asp-controller="Conta" asp-action="Perfil" class="sidebar-icon">
-                    <img src="~/css/assets/menu-lateral/UserIcone.svg" alt="Usuário" />
-                </a>
-                <a asp-controller="Home" asp-action="Configuracoes" class="sidebar-icon">
-                    <img src="~/css/assets/menu-lateral/IconeConfiguracao.svg" alt="Configurações" />
-                </a>
-            </div>
-        </aside>
+            <aside class="sidebar">
+                <div class="sidebar-top">
+                <a asp-controller="Inicial" asp-action="ListasArquivadas" class="sidebar-icon active">
+                        <img src="~/css/assets/menu-lateral/LogoApp.svg" alt="Página inicial" />
+                    </a>
+                <a asp-controller="ListasArquivadas" asp-action="Index" class="sidebar-icon">
+                        <img src="~/css/assets/menu-lateral/IconeListasArquivadas.svg" alt="Listas arquivadas" />
+                    </a>
+                    <a asp-controller="CriarLista" asp-action="Criar" class="sidebar-icon">
+                        <img src="~/css/assets/menu-lateral/IconeEditaPadrao.svg" alt="Criar nova lista" />
+                    </a>
+                </div>
+                <div class="sidebar-bottom">
+                    <a asp-controller="Conta" asp-action="Perfil" class="sidebar-icon">
+                        <img src="~/css/assets/menu-lateral/UserIcone.svg" alt="Usuário" />
+                    </a>
+                    <a asp-controller="Home" asp-action="Configuracoes" class="sidebar-icon">
+                        <img src="~/css/assets/menu-lateral/IconeConfiguracao.svg" alt="Configurações" />
+                    </a>
+                </div>
+            </aside>
 
-        <main class="main-content">
-            @RenderBody()
-        </main>
+            <main class="main-content">
+                @RenderBody()
+            </main>
 
-    </div>
+        </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>

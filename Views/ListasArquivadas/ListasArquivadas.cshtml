@@ -1,0 +1,59 @@
+﻿@model List<Compraí___Listas_compartilhadas.Models.ListaArquivadaViewModel>
+
+@{
+    ViewData["Title"] = "Listas Arquivadas";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Listas-Arquivadas.css"/>
+}
+
+<div class="listas-arquivadas-container">
+    <h1>Listas Arquivadas</h1>
+
+    <div class="card-listas">
+        <div class="ordenar-por">
+            <label for="ordenacao">Ordenar por:</label>
+            <select id="ordenacao" class="select-ordenacao">
+                <option value="recentes">Mais recentes</option>
+                <option value="antigas">Mais antigas</option>
+            </select>
+        </div>
+
+        <table class="tabela-listas-arquivadas">
+            <thead>
+                <tr>
+                    <th>Lista</th>
+                    <th>Arquivada em</th>
+                    <th>Total da compra</th>
+                    <th>Contribuição</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lista in Model)
+                {
+                    <tr>
+                        <td>@lista.NomeLista</td>
+                        <td>
+                            @if (lista.DataConclusao.HasValue)
+                            {
+                                @lista.DataConclusao.Value.ToString("dd/MM/yyyy 'às' HH:mm")
+                            }
+                            else
+                            {
+                                <span>-</span>
+                            }
+                        </td>
+                        <td>@lista.TotalCompra.ToString("C2", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td>@lista.Contribuicao.ToString("C2", new System.Globalization.CultureInfo("pt-BR"))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!Model.Any())
+        {
+            <p class="sem-listas">Nenhuma lista arquivada ainda.</p>
+        }
+    </div>
+</div>

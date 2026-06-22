@@ -18,7 +18,7 @@ namespace Compraí____Listas_compartilhadas.Controllers
                 return View(model);
 
             // Regras pra salvar no banco <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEXER DEPOIS
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Conta");
         }
 
         [HttpGet]
@@ -33,7 +33,7 @@ namespace Compraí____Listas_compartilhadas.Controllers
                 return View(model);
 
             // Regras pra autenticação (banco de dados) <<<<<<<<<<<<<<<<<<<<<<<<<<<< MEXER DEPOIS
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Inicial");
         }
 
         
