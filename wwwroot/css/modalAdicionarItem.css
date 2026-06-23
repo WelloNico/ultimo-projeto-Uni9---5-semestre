@@ -1,0 +1,91 @@
+﻿/* Modal: Adicionar novo item */
+
+#modalAdicionarItem .modal-content {
+    background-color: #3A3F47;
+    border-radius: 16px;
+    border: none;
+    color: #FFFFFF;
+}
+
+#modalAdicionarItem .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 24px;
+}
+
+#modalAdicionarItem .modal-title {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+#modalAdicionarItem .btn-close {
+    filter: invert(1);
+}
+
+#modalAdicionarItem .modal-body {
+    padding: 24px;
+}
+
+    #modalAdicionarItem .modal-body label {
+        color: #29FF57;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+#modalAdicionarItem .form-control {
+    background-color: #2A2D34;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border-radius: 8px;
+    height: 44px;
+}
+
+    #modalAdicionarItem .form-control:focus {
+        background-color: #2A2D34;
+        color: #FFFFFF;
+        border-color: #29FF57;
+        box-shadow: none;
+    }
+
+    #modalAdicionarItem .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+#modalAdicionarItem .modal-footer {
+    border-top: none;
+    padding: 0 24px 24px;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-adicionar-item {
+    background-color: transparent;
+    border: 2px solid #29FF57;
+    color: #29FF57;
+    border-radius: 50px;
+    padding: 8px 28px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+    .btn-adicionar-item:hover {
+        background-color: #29FF57;
+        color: #2A2D34;
+    }
+
+.btn-cancelar-item {
+    background-color: transparent;
+    border: 2px solid #8B5CF6;
+    color: #8B5CF6;
+    border-radius: 50px;
+    padding: 8px 28px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+    .btn-cancelar-item:hover {
+        background-color: #8B5CF6;
+        color: #2A2D34;
+    }

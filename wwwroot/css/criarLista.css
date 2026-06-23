@@ -1,10 +1,10 @@
-﻿
-/* Página */
+﻿/*
+ Página */
 body {
     background-color: #2A2D34;
 }
 
-/* Container principal */
+ Container principal 
 
 .criar-lista-container {
     max-width: 1200px;
@@ -12,6 +12,7 @@ body {
     padding: 0 20px;
 }
 
+/* ///////////////////////////////////////////// */
 /* Título */
 
 .page-title {
@@ -26,6 +27,9 @@ body {
     margin-bottom: 25px;
 }
 
+
+
+/* ///////////////////////////////////////////// */
 /* Card */
 
 .lista-card {
@@ -34,6 +38,7 @@ body {
     padding: 35px;
 }
 
+    /* ///////////////////////////////////////////// */
     /* Labels */
 
     .lista-card label {
@@ -42,6 +47,8 @@ body {
         margin-bottom: 8px;
     }
 
+
+    /* ///////////////////////////////////////////// */
     /* Inputs */
 
     .lista-card .form-control {
@@ -52,6 +59,11 @@ body {
         height: 48px;
     }
 
+/*     Placeholder*/
+        .lista-card .form-control::placeholder {
+            color: #FFFFFF;
+        }
+
         .lista-card .form-control:focus {
             background-color: transparent;
             color: #FFFFFF;
@@ -59,6 +71,7 @@ body {
             box-shadow: none;
         }
 
+/* ///////////////////////////////////////////// */
 /* Cabeçalhos */
 
 .section-title {
@@ -78,14 +91,17 @@ body {
     border-radius: 10px;
 }
 
-/* Tabela */
+/* ///////////////////////////////////////////// */
+/*Tabela*/
+
+
 #tabelaProdutos {
     color: #FFFFFF;
     border-collapse: separate;
     border-spacing: 0 10px;
 }
 
-    #tabelaProdutos thead tr {
+    # Produtos thead tr {
         background-color: #2F333A;
         border-radius: 12px;
     }
@@ -104,12 +120,15 @@ body {
         padding: 6px;
     }
 
+    /* ///////////////////////////////////////////// */
     /* Inputs da tabela */
 
-    #tabelaProdutos .form-control {
-        height: 44px;
-    }
+#tabelaProdutos .form-control {
+    height: 44px;
+    color: #FFFFFF;
+}
 
+/* ///////////////////////////////////////////// */
 /* Botão adicionar */
 
 .btn-adicionar {
@@ -127,6 +146,7 @@ body {
         color: #2A2D34;
     }
 
+/* ///////////////////////////////////////////// */
 /* Botão salvar */
 
 .btn-salvar {
@@ -142,6 +162,7 @@ body {
         opacity: 0.9;
     }
 
+/* ///////////////////////////////////////////// */
 /* Botão remover */
 
 .btn-remover {

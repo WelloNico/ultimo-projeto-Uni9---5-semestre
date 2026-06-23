@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login - Compraí</title>  @* Depois aqui vai um  (arroba)Model.NomeLista pra puxar o nomme  da lista atual *@
         <link rel="stylesheet" href="~/css/Inicial.css" />
+        <link rel="stylesheet" href="~/css/modalAdicionarItem.css" />
     </head>
     
     <body>
@@ -33,7 +34,7 @@
                         <img src="~/css/assets/inicial/IconeDeletaLista.svg" alt="Deletar Item da Lista" />
                      </button>
 
-                    <button type="button" class="btn btn-outline-success">
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#modalAdicionarItem">
                         <img src="~/css/assets/inicial/IconeAddItemLista.svg" alt="Incluir item na Lista" />
                     </button>
                 </div>
@@ -63,7 +64,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="4" class="text-center">Nenhum item na lista</td>
+                            <td colspan="4" class="text-center">Você não possui listas ativas, clique em "Criar nova lista" no menu para criar uma. </td>
                         </tr>
                     }
                 </tbody>
@@ -100,6 +101,56 @@
         </div>
 
         </div>
+
+    <!-- Modal: Adicionar novo item na lista -->
+    <div class="modal fade" id="modalAdicionarItem" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <form asp-controller="Inicial" asp-action="AdicionarItem" method="post">
+
+                    <!-- Campo escondido: identifica a qual lista esse item pertence -->
+                    <input type="hidden" name="ListaId" value="@ViewBag.ListaId" />
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Adicione um novo produto na lista</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="Produto">Produto</label>
+                            <input type="text" name="Produto" id="Produto" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Marca">Marca</label>
+                            <input type="text" name="Marca" id="Marca" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Quantidade">Quantidade</label>
+                            <input type="number" name="Quantidade" id="Quantidade" class="form-control" min="1" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Preco">Preço</label>
+                            <input type="number" name="Preco" id="Preco" class="form-control" step="0.01" min="0" required />
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-adicionar-item">Adicionar</button>
+                        <button type="button" class="btn-cancelar-item" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
     </body>
 
 </html>
