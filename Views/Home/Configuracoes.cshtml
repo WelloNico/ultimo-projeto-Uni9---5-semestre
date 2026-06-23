@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Configurações";
+}
+
+<div class="config-container">
+
+    <h1>Ajuda & Suporte</h1>
+
+    <p class="config-subtitle">
+        Encontre respostas ou fale com nossa equipe de suporte
+    </p>
+
+    <a asp-controller="Conta" asp-action="Login" class="option-card sair-link">
+        <div>
+            <img src="~/css/assets/configuracoes/HelpIcon.svg"/>
+            <h3>Sair</h3>
+            <p>Encerrar sessão nesse dispositivo</p>
+        </div>
+
+        <span>></span>
+    </a>
+
+        <span></span>
+
+    <div class="option-card">
+        <div>
+            <img src="~/css/assets/configuracoes/Vector.svg" />
+            <h3> Fale com o suporte</h3>
+            <p>Receba ajuda que se ajusta ao seu problema</p>
+        </div>
+
+        <span>></span>
+    </div>
+
+</div>

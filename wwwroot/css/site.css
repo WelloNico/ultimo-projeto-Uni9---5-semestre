@@ -95,3 +95,45 @@ body {
     flex: 1;
     padding: 24px;
 }
+
+.config-container {
+    padding: 50px;
+    color: white;
+}
+
+.config-subtitle {
+    margin-bottom: 30px;
+}
+
+.option-card {
+    background: #3B404B;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .option-card h3 {
+        margin: 0;
+    }
+
+    .option-card p {
+        margin: 0;
+        opacity: 0.8;
+    }
+
+    .option-card span {
+        font-size: 30px;
+        color: #32ff32;
+    }
+
+.sair-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+    .sair-link:hover {
+        color: inherit;
+    }
