@@ -15,14 +15,21 @@ O **Compraí** resolve esse problema permitindo que múltiplos usuários colabor
 - Colaboração entre múltiplos usuários na mesma lista
 - Login individual para cada participante
 - Visualização do total estimado da compra e contribuição por usuário
-- Identificação de quem adicionou cada item
-- Alerta de duplicidade de itens
-- Teto de orçamento por compra
-- Leitura de código de barras via câmera *(em desenvolvimento)*
+- Identificação de quem adicionou cada item *(proposta de melhoria)*
+- Alerta de duplicidade de itens *(proposta de melhoria)*
+- Teto de orçamento por compra *(proposta de melhoria)*
+- Leitura de código de barras via câmera *(proposta de melhoria)*
 
 ##  Tecnologias
 
-Esse projeto foi desenvolvido utilizando 
+Esse projeto foi desenvolvido utilizando .NET MVC (versão 9.0) e Bootstrap como framework, MySQL como banco de dados e algumas poucas funcionalidades em JavaScript. Tudo isso através do ambiente de desenvolvimento Visual Studio.
+
+Dentro do Visual studio, será necessario baixar as extensões:
+- Microsoft.EntityFrameworkCore.Design:
+- Pomelo.EntityFrameworkCore.MySql
+- BCrypt.Net-Next
+
+  Atente-se ao baixar as extensões pois elas devem ser compativeis com a versão 9.0 do .NET
 
 ##  Como rodar o projeto
 
@@ -30,10 +37,15 @@ Esse projeto foi desenvolvido utilizando
 ```bash
    git clone https://github.com/WelloNico/ultimo-projeto-Uni9---5-semestre.git
 ```
-2. Abra o projeto no Visual Studio 2022
-3. Execute com `F5` ou `Ctrl + F5`
-4. Em seu primeiro acesso, crie login e senha para acessar.
-5. Você será levado até a página inicial onde poderá escolher entre, editar uma lista da qual participe ou criar uma nova.
+
+2. Abra a pasta do projeto e localize o arquivo RecriarBD.sql (Database\RecriarDBsql). Ele permitirá que você recrie o o banco de dados no MySQL.
+3. Abra o projeto no Visual Studio 2022
+4. Execute com `F5` ou `Ctrl + F5`
+5. Em seu primeiro acesso, cadastre-se para acessar.
+6. Você será levado até a página inicial.
+7. Navegue para a página que cria uma nova lista clicando no segundo icone do menu.
+8. Adicione quantos itens desejar e depois salve a lista, salvando-os um a um.
+9. De volta a tela inicial, fique a vontade para clicar no icone de adição e inserir um novo item ou clicar na lixeira e excluir a lista criada.
 
 
 ##  Público-alvo
