@@ -137,3 +137,72 @@ body {
     .sair-link:hover {
         color: inherit;
     }
+
+.perfil-container {
+    padding: 40px;
+    color: white;
+}
+
+.perfil-subtitle {
+    margin-bottom: 30px;
+    color: #bdbdbd;
+}
+
+.perfil-card {
+    background: #3b3f4a;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 700px;
+}
+
+    .perfil-card label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .perfil-card input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #666;
+        background: #2f333d;
+        color: white;
+    }
+
+.btn-salvar {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #39ff14;
+    border: 2px solid #39ff14;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .btn-salvar:hover {
+        transform: scale(1.03);
+    }
+
+.estatisticas {
+    display: flex;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.estatistica-item {
+    flex: 1;
+    background: #2f333d;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+    .estatistica-item span {
+        font-size: 28px;
+        font-weight: bold;
+    }

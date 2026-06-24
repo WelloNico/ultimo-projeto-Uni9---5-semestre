@@ -36,6 +36,26 @@ namespace Compraí____Listas_compartilhadas.Controllers
             return RedirectToAction("Index", "Inicial");
         }
 
-        
+        [HttpGet]
+        public IActionResult Perfil()
+        {
+            var model = new PerfilViewModel
+            {
+                Nome = "Usuário Exemplo",
+                Email = "usuario@email.com",
+                Telefone = "(11) 99999-9999"
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Perfil(PerfilViewModel model)
+        {
+            ViewBag.Mensagem = "Dados salvos com sucesso!";
+
+            return View(model);
+        }
+
     }
 }

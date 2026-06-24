@@ -1,9 +1,50 @@
-﻿@page
-@model Compraí____Listas_compartilhadas.Views.Conta.PerfilModel
+﻿@model Compraí____Listas_compartilhadas.Models.PerfilViewModel
+
 @{
     ViewData["Title"] = "Perfil";
-}
+}   
 
-<h1>Meu Perfil</h1>
+<div class="perfil-container">
 
-<p>Página em desenvolvimento.</p>
+    <h1>Meu Perfil</h1>
+
+    <p class="perfil-subtitle">
+        Gerencie suas informações pessoais
+    </p>
+
+    <div class="perfil-card">
+
+        <form method="post">
+
+            <label>Nome</label>
+            <input asp-for="Nome" />
+
+            <label>E-mail</label>
+            <input asp-for="Email" />
+
+            <label>Telefone</label>
+            <input asp-for="Telefone" />
+
+            <button type="submit" class="btn-salvar">
+                Salvar Alterações
+            </button>
+
+        </form>
+
+        <div class="estatisticas">
+
+            <div class="estatistica-item">
+                <h3>Listas Ativas</h3>
+                <span>0</span>
+            </div>
+
+            <div class="estatistica-item">
+                <h3>Listas Arquivadas</h3>
+                <span>0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
