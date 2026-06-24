@@ -12,7 +12,6 @@ namespace Compraí____Listas_compartilhadas.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Senha é obrigatória")]
-        [MinLength(6, ErrorMessage = "Mínima de 6 caracteres")]
         public string Senha { get; set; }
 
     }

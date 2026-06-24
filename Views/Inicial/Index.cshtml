@@ -6,111 +6,114 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login - Compraí</title>  @* Depois aqui vai um  (arroba)Model.NomeLista pra puxar o nomme  da lista atual *@
-        <link rel="stylesheet" href="~/css/Inicial.css" />
-        <link rel="stylesheet" href="~/css/modalAdicionarItem.css" />
-    </head>
-    
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Compraí</title>
+    <link rel="stylesheet" href="~/css/Inicial.css" />
+    <link rel="stylesheet" href="~/css/modalAdicionarItem.css" />
+</head>
 
-        <h1 class="titulo-app">Compraí</h1>
+<body>
 
-        <div class="busca-lista">
-            <form method="get" asp-action="Index">
-                <input type="text" name="nomeLista" placeholder=" Busque por uma lista" class="campo-busca" />
-                <button type="submit" class="btn-buscar">Buscar</button>
-            </form>
-        </div>
+    <h1 class="titulo-app">Compraí</h1>
 
-        <div class="pagina-inicial">
+    <div class="busca-lista">
+        <form method="get" asp-action="Index">
+            <input type="text" name="nomeLista" placeholder=" Busque por uma lista" class="campo-busca" />
+            <button type="submit" class="btn-buscar">Buscar</button>
+        </form>
+    </div>
 
-            <div class="header-inicial">
-                <h2 class="Nome-lista">Nome da lista</h2>
-                <div class="acoes">
-                    <button type="button" class="btn btn-outline-danger">
-                        <img src="~/css/assets/inicial/IconeDeletaLista.svg" alt="Deletar Item da Lista" />
-                     </button>
+    <div class="pagina-inicial">
 
-                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#modalAdicionarItem">
-                        <img src="~/css/assets/inicial/IconeAddItemLista.svg" alt="Incluir item na Lista" />
-                    </button>
-                </div>
+        @if (TempData["AvisoErro"] != null)
+        {
+            <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border: 1px solid #f5c6cb; border-radius: 4px; margin-bottom: 20px; text-align: center; font-family: sans-serif;">
+                <strong>Aviso:</strong> @TempData["AvisoErro"]
             </div>
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">QTD</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
-                    {
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Quantidade</td>
-                                <td>@item.Produto</td>
-                                <td>@item.Marca</td>
-                                <td>R$ @item.Preco</td>
-                            </tr>
-                        }
-                    }
-                    else
+        }
+
+        <div class="header-inicial">
+            <h2 class="Nome-lista">@(ViewBag.NomeLista ?? "Nome da lista")</h2>
+            <div class="acoes">
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalExcluirLista">
+                    <img src="~/css/assets/inicial/IconeDeletaLista.svg" alt="Deletar Item da Lista" />
+                </button>
+
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalAdicionarItem">
+                    <img src="~/css/assets/inicial/IconeAddItemLista.svg" alt="Incluir item na Lista" />
+                </button>
+            </div>
+        </div>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">QTD</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
                     {
                         <tr>
-                            <td colspan="4" class="text-center">Você não possui listas ativas, clique em "Criar nova lista" no menu para criar uma. </td>
+                            <td>@item.Quantidade</td>
+                            <td>@item.Produto</td>
+                            <td>@item.Marca</td>
+                            <td>R$ @item.Preco</td>
                         </tr>
                     }
-                </tbody>
-            </table>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">Você não possui listas ativas, clique em "Criar nova lista" no menu para criar uma. </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
         <div class="Valores">
             <div class="Valores-card">
-                    <span>Total compra</span>
-                <strong>R$ --</strong> @*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< AQUI VAI REFERENCIAR A MODEL QUE VAI PUXAR OS DADOS DO BANCO *@
-                </div>
+                <span>Total compra</span>
+                <strong>R$ --</strong>
+            </div>
             <div class="Valores-card">
-                    <span>Contribuição</span>
-                <strong>R$ --</strong>  @*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< AQUI VAI REFERENCIAR A MODEL QUE VAI PUXAR OS DADOS DO BANCO *@
+                <span>Contribuição</span>
+                <strong>R$ --</strong>
             </div>
         </div>
 
         <div class="status-compra">
-                <p>Status da compra</p>
-                <div class="status-icons">
-                    <div>
-                        <img src="~/css/assets/inicial/IconeStatusAguardando.svg" alt="Pendente" />
-                    </div>
-                    <span class="seta">→</span>
-
-                    <div>
-                        <img src="~/css/assets/inicial/IconeStatusComprando.svg" alt="Comprando" />
-                    </div>
-                    <span class="seta">→</span>
-                    
-                    <div>
-                        <img src="~/css/assets/inicial/IconeStatusConcluido.svg" alt="Concluído" />
-                    </div>
+            <p>Status da compra</p>
+            <div class="status-icons">
+                <div>
+                    <img src="~/css/assets/inicial/IconeStatusAguardando.svg" alt="Pendente" />
                 </div>
+                <span class="seta">→</span>
+
+                <div>
+                    <img src="~/css/assets/inicial/IconeStatusComprando.svg" alt="Comprando" />
+                </div>
+                <span class="seta">→</span>
+
+                <div>
+                    <img src="~/css/assets/inicial/IconeStatusConcluido.svg" alt="Concluído" />
+                </div>
+            </div>
         </div>
 
-        </div>
+    </div>
 
-    <!-- Modal: Adicionar novo item na lista -->
     <div class="modal fade" id="modalAdicionarItem" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-
                 <form asp-controller="Inicial" asp-action="AdicionarItem" method="post">
-
-                    <!-- Campo escondido: identifica a qual lista esse item pertence -->
-                    <input type="hidden" name="ListaId" value="@ViewBag.ListaId" />
+                    <input type="hidden" name="IdLista" value="@ViewBag.ListaId" />
 
                     <div class="modal-header">
                         <h5 class="modal-title">Adicione um novo produto na lista</h5>
@@ -118,39 +121,57 @@
                     </div>
 
                     <div class="modal-body">
-
                         <div class="mb-3">
                             <label for="Produto">Produto</label>
-                            <input type="text" name="Produto" id="Produto" class="form-control" required />
+                            <input type="text" name="Descricao" id="Produto" class="form-control" required />
                         </div>
-
                         <div class="mb-3">
                             <label for="Marca">Marca</label>
                             <input type="text" name="Marca" id="Marca" class="form-control" />
                         </div>
-
                         <div class="mb-3">
                             <label for="Quantidade">Quantidade</label>
                             <input type="number" name="Quantidade" id="Quantidade" class="form-control" min="1" required />
                         </div>
-
                         <div class="mb-3">
                             <label for="Preco">Preço</label>
                             <input type="number" name="Preco" id="Preco" class="form-control" step="0.01" min="0" required />
                         </div>
-
                     </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn-adicionar-item">Adicionar</button>
                         <button type="button" class="btn-cancelar-item" data-bs-dismiss="modal">Cancelar</button>
                     </div>
-
                 </form>
-
             </div>
         </div>
     </div>
-    </body>
 
+    <div class="modal fade" id="modalExcluirLista" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center" style="background-color: #6C727F !important; border: none; border-radius: 16px; padding: 24px;">
+                <div class="modal-body text-white">
+
+                    <div class="mb-3">
+                        <img src="~/css/assets/ModalDeletarLista/Aviso.svg" alt="Aviso" style="width: 60px; height: 60px;" />
+                    </div>
+
+                    <h3 class="fw-bold mb-4" style="font-size: 1.8rem; font-family: sans-serif; color: white !important;">Você está prestes a deletar sua lista atual</h3>
+
+                    <form asp-controller="Inicial" asp-action="DeletarLista" method="post">
+                        <input type="hidden" name="idLista" value="@ViewBag.ListaId" />
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn btn-outline-light px-4 py-2" data-bs-dismiss="modal" style="border-radius: 20px; font-weight: bold; background: transparent; color: white; border: 1px solid white;">Cancelar</button>
+                            <button type="submit" class="btn px-4 py-2" style="background-color: #8A7BB7 !important; color: white !important; border-radius: 20px; font-weight: bold; border: none;">Excluir</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>

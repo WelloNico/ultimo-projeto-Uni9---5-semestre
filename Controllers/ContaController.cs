@@ -1,23 +1,55 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BCrypt.Net;
+using Microsoft.AspNetCore.Mvc;
+using Compraí____Listas_compartilhadas.Data;
 using Compraí____Listas_compartilhadas.Models;
+
 
 namespace Compraí____Listas_compartilhadas.Controllers
 {
     public class ContaController : Controller
+
     {
+
+        private readonly CompraiDbContext _context;
+
+        public ContaController(CompraiDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public IActionResult Cadastro()
         {
             return View();
         }
 
+
         [HttpPost]
         public IActionResult Cadastro(CadastroViewModel model)
         {
+
+
             if (!ModelState.IsValid)
                 return View(model);
 
-            // Regras pra salvar no banco <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEXER DEPOIS
+            if (_context.Usuarios.Any(u => u.Email == model.Email))
+            {
+                ModelState.AddModelError("Email", "já existe um usuario utilizando esse email. Cadstre outro ou faça login.");
+                return View(model);
+            }
+
+            var usuario = new Usuario
+            {
+                NomeCompleto = model.NomeCompleto,
+                Email = model.Email,
+                Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha) //senha criptografada
+            };
+
+
+
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+
             return RedirectToAction("Login", "Conta");
         }
 
@@ -32,9 +64,19 @@ namespace Compraí____Listas_compartilhadas.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            // Regras pra autenticação (banco de dados) <<<<<<<<<<<<<<<<<<<<<<<<<<<< MEXER DEPOIS
+            var usuario = _context.Usuarios
+                //firstOrDefault significa = traga o primeiro registro que encotrar que corresponda a condição, caso não encontre nenhum registro que corresponda a condição, ele retorne null
+            .FirstOrDefault(u => u.Email == model.Email); // É lambda, são apelidinhos. Igual consulta SQL
+
+            if (usuario == null)
+            {
+                ModelState.AddModelError("", "Usuário ou senha inválidos.");
+                return View(model);
+            }
+
             return RedirectToAction("Index", "Inicial");
         }
+
 
         [HttpGet]
         public IActionResult Perfil()
@@ -56,6 +98,7 @@ namespace Compraí____Listas_compartilhadas.Controllers
 
             return View(model);
         }
+
 
     }
 }

@@ -1,5 +1,127 @@
-﻿@model Compraí____Listas_compartilhadas.Models.CriarListaViewModel
+﻿@* @model Compraí____Listas_compartilhadas.Models.CriarListaViewModel *@
 
+
+@* @{ *@
+@*     ViewData["Title"] = "Criar nova lista"; *@
+@* } *@
+
+@* @section Styles { *@
+@*     <link rel="stylesheet" href="~/css/criarLista.css" /> *@
+@* } *@
+
+@* <div class="criar-lista-container"> *@
+
+@*     <h1 class="page-title"> *@
+@*         Criar nova lista compartilhada *@
+@*     </h1> *@
+
+
+@*     <div class="lista-card"> *@
+
+@*         <form asp-action="Criar" method="post"> *@
+
+@*             <div class="mb-4"> *@
+
+@*                 <label asp-for="NomeLista"> *@
+@*                     Nome da Lista *@
+@*                 </label> *@
+
+@*                 <input asp-for="NomeLista" *@
+@*                        class="form-control" /> *@
+
+@*             </div> *@
+
+@*             <h4 class="section-title"> *@
+@*                 Cadastre abaixo seus produtos *@
+@*             </h4> *@
+
+@*             <p class="section-subtitle"> *@
+@*                 Cadastre pelo menos 1 item pra gerar a nova lista *@
+@*             </p> *@
+
+@*             <table class="table table-dark align-middle" id="tabelaProdutos"> *@
+
+@*                 <thead class="Cadastro_itens"> *@
+@*                     <tr > *@
+@*                         <th scope="col">Produto</th> *@
+@*                         <th scope="col">Marca</th> *@
+@*                         <th scope="col">Quantidade</th> *@
+@*                         <th scope="col">Preço</th> *@
+@*                         <th scope="col"></th> *@
+@*                     </tr> *@
+@*                 </thead> *@
+
+@*                 <tbody> *@
+
+@*                     @for (int i = 0; i < Model.Produtos.Count; i++) *@
+@*                     { *@
+@*                         <tr> *@
+
+@*                             <td> *@
+@*                                 <input asp-for="Produtos[i].Produto" *@
+@*                                        class="form-control" *@
+@*                                        placeholder="Digite o nome do produto" /> *@
+@*                             </td> *@
+
+@*                             <td> *@
+@*                                 <input asp-for="Produtos[i].Marca" *@
+@*                                        class="form-control" *@
+@*                                        placeholder="Selecione a marca" /> *@
+@*                             </td> *@
+
+@*                             <td style="width: 150px;"> *@
+@*                                 <input asp-for="Produtos[i].Quantidade" *@
+@*                                        class="form-control" /> *@
+@*                             </td> *@
+
+@*                             <td style="width: 180px;"> *@
+@*                                 <input asp-for="Produtos[i].Preco" *@
+@*                                        class="form-control" /> *@
+@*                             </td> *@
+
+@*                             <td style="width: 80px;"> *@
+@*                                 <button type="button" *@
+@*                                         class="btn btn-outline-light"> *@
+@*                                     <img src="~/css/assets/CriarNovaLista\IconeDeletaLista.svg" alt="Icone Deleta Lista" /> *@
+@*                                 </button> *@
+@*                             </td> *@
+
+@*                         </tr> *@
+@*                     } *@
+                   
+@*                 </tbody> *@
+
+@*             </table> *@
+
+
+@*             <div class="mt-3"> *@
+
+@*                 <button type="button" *@
+@*                         class="btn-adicionar" *@
+@*                         id="btnAdicionar"> *@
+@*                     Adicionar *@
+@*                 </button> *@
+
+@*             </div> *@
+
+@*             <div class="mt-4"> *@
+
+@*                 <button type="submit" *@
+@*                         class="btn-salvar"> *@
+@*                     Salvar Lista *@
+@*                 </button> *@
+
+@*             </div> *@
+
+@*         </form> *@
+
+@*     </div> *@
+
+@* </div> *@
+
+
+
+@model Compraí____Listas_compartilhadas.Models.CriarListaViewModel
 
 @{
     ViewData["Title"] = "Criar nova lista";
@@ -15,20 +137,15 @@
         Criar nova lista compartilhada
     </h1>
 
-
     <div class="lista-card">
 
         <form asp-action="Criar" method="post">
 
             <div class="mb-4">
-
                 <label asp-for="NomeLista">
                     Nome da Lista
                 </label>
-
-                <input asp-for="NomeLista"
-                       class="form-control" />
-
+                <input asp-for="NomeLista" class="form-control" required />
             </div>
 
             <h4 class="section-title">
@@ -42,7 +159,7 @@
             <table class="table table-dark align-middle" id="tabelaProdutos">
 
                 <thead class="Cadastro_itens">
-                    <tr >
+                    <tr>
                         <th scope="col">Produto</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Quantidade</th>
@@ -52,69 +169,126 @@
                 </thead>
 
                 <tbody>
-
                     @for (int i = 0; i < Model.Produtos.Count; i++)
                     {
-                        <tr>
-
+                        <tr class="linha-produto">
                             <td>
                                 <input asp-for="Produtos[i].Produto"
-                                       class="form-control"
+                                       class="form-control campo-produto"
                                        placeholder="Digite o nome do produto" />
                             </td>
 
                             <td>
                                 <input asp-for="Produtos[i].Marca"
-                                       class="form-control"
+                                       class="form-control campo-marca"
                                        placeholder="Selecione a marca" />
                             </td>
 
                             <td style="width: 150px;">
                                 <input asp-for="Produtos[i].Quantidade"
-                                       class="form-control" />
+                                       class="form-control campo-quantidade" />
                             </td>
 
                             <td style="width: 180px;">
                                 <input asp-for="Produtos[i].Preco"
-                                       class="form-control" />
+                                       class="form-control campo-preco" type="number" step="0.01" />
                             </td>
 
                             <td style="width: 80px;">
-                                <button type="button"
-                                        class="btn btn-outline-light">
-                                    <img src="~/css/assets/CriarNovaLista\IconeDeletaLista.svg" alt="Icone Deleta Lista" />
+                                <button type="button" class="btn btn-outline-light btn-deletar">
+                                    <img src="~/css/assets/CriarNovaLista/IconeDeletaLista.svg" alt="Icone Deleta Lista" />
                                 </button>
                             </td>
-
                         </tr>
                     }
-                   
                 </tbody>
 
             </table>
 
-
             <div class="mt-3">
-
-                <button type="button"
-                        class="btn-adicionar"
-                        id="btnAdicionar">
+                <button type="button" class="btn-adicionar" id="btnAdicionar">
                     Adicionar
                 </button>
-
             </div>
 
             <div class="mt-4">
-
-                <button type="submit"
-                        class="btn-salvar">
+                <button type="submit" class="btn-salvar">
                     Salvar Lista
                 </button>
-
             </div>
 
         </form>
 
     </div>
-
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById('btnAdicionar').addEventListener('click', function () {
+            const tbody = document.querySelector('#tabelaProdutos tbody');
+            const totalLinhas = tbody.querySelectorAll('.linha-produto').length;
+
+            // Cria o HTML da nova linha com o índice atualizado para o C# entender
+            const novaLinhaHTML = `
+                <tr class="linha-produto">
+                    <td>
+                        <input name="Produtos[${totalLinhas}].Produto" id="Produtos_${totalLinhas}__Produto" class="form-control campo-produto" placeholder="Digite o nome do produto" />
+                    </td>
+                    <td>
+                        <input name="Produtos[${totalLinhas}].Marca" id="Produtos_${totalLinhas}__Marca" class="form-control campo-marca" placeholder="Selecione a marca" />
+                    </td>
+                    <td style="width: 150px;">
+                        <input name="Produtos[${totalLinhas}].Quantidade" id="Produtos_${totalLinhas}__Quantidade" class="form-control campo-quantidade" type="number" value="1" />
+                    </td>
+                    <td style="width: 180px;">
+                        <input name="Produtos[${totalLinhas}].Preco" id="Produtos_${totalLinhas}__Preco" class="form-control campo-preco" type="number" step="0.01" value="0.00" />
+                    </td>
+                    <td style="width: 80px;">
+                        <button type="button" class="btn btn-outline-light btn-deletar">
+                            <img src="/css/assets/CriarNovaLista/IconeDeletaLista.svg" alt="Icone Deleta Lista" />
+                        </button>
+                    </td>
+                </tr>
+            `;
+
+            tbody.insertAdjacentHTML('beforeend', novaLinhaHTML);
+        });
+
+        // Evento para monitorar cliques nos botões de deletar (mesmo nas linhas novas)
+        document.querySelector('#tabelaProdutos tbody').addEventListener('click', function (e) {
+            if (e.target.closest('.btn-deletar')) {
+                const linhas = document.querySelectorAll('.linha-produto');
+
+                // Impede deletar se for a única linha da tabela
+                if (linhas.length <= 1) {
+                    alert("Você precisa cadastrar pelo menos 1 produto para criar a lista!");
+                    return;
+                }
+
+                // Remove a linha clicada
+                e.target.closest('.linha-produto').remove();
+
+                // Recalcula os índices de todas as linhas restantes para não quebrar o envio do C#
+                reorganizarIndices();
+            }
+        });
+
+        // Função crucial para refazer a contagem [0], [1], [2] se o usuário apagar uma linha do meio
+        function reorganizarIndices() {
+            const linhas = document.querySelectorAll('.linha-produto');
+            linhas.forEach((linha, index) => {
+                linha.querySelector('.campo-produto').setAttribute('name', `Produtos[${index}].Produto`);
+                linha.querySelector('.campo-produto').setAttribute('id', `Produtos_${index}__Produto`);
+
+                linha.querySelector('.campo-marca').setAttribute('name', `Produtos[${index}].Marca`);
+                linha.querySelector('.campo-marca').setAttribute('id', `Produtos_${index}__Marca`);
+
+                linha.querySelector('.campo-quantidade').setAttribute('name', `Produtos[${index}].Quantidade`);
+                linha.querySelector('.campo-quantidade').setAttribute('id', `Produtos_${index}__Quantidade`);
+
+                linha.querySelector('.campo-preco').setAttribute('name', `Produtos[${index}].Preco`);
+                linha.querySelector('.campo-preco').setAttribute('id', `Produtos_${index}__Preco`);
+            });
+        }
+    </script>
+}
