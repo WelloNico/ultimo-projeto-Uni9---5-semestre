@@ -8,6 +8,12 @@
 
     <h1>Meu Perfil</h1>
 
+    @if (ViewBag.Mensagem != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Mensagem
+        </div>
+    }
     <p class="perfil-subtitle">
         Gerencie suas informações pessoais
     </p>
@@ -22,8 +28,8 @@
             <label>E-mail</label>
             <input asp-for="Email" />
 
-            <label>Telefone</label>
-            <input asp-for="Telefone" />
+            <label>Senha</label>
+            <input asp-for="Senha" type="password" />
 
             <button type="submit" class="btn-salvar">
                 Salvar Alterações

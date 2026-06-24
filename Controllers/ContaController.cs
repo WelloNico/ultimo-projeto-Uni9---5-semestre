@@ -81,11 +81,16 @@ namespace Compraí____Listas_compartilhadas.Controllers
         [HttpGet]
         public IActionResult Perfil()
         {
+            var usuario = _context.Usuarios.FirstOrDefault();
+
+            if (usuario == null)
+                return RedirectToAction("Cadastro");
+
             var model = new PerfilViewModel
             {
-                Nome = "Usuário Exemplo",
-                Email = "usuario@email.com",
-                Telefone = "(11) 99999-9999"
+                Nome = usuario.NomeCompleto,
+                Email = usuario.Email,
+                Senha = ""
             };
 
             return View(model);
@@ -94,6 +99,21 @@ namespace Compraí____Listas_compartilhadas.Controllers
         [HttpPost]
         public IActionResult Perfil(PerfilViewModel model)
         {
+            var usuario = _context.Usuarios.FirstOrDefault();
+
+            if (usuario == null)
+                return RedirectToAction("Cadastro");
+
+            usuario.NomeCompleto = model.Nome;
+            usuario.Email = model.Email;
+
+            if (!string.IsNullOrWhiteSpace(model.Senha))
+            {
+                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+            }
+
+            _context.SaveChanges();
+
             ViewBag.Mensagem = "Dados salvos com sucesso!";
 
             return View(model);
