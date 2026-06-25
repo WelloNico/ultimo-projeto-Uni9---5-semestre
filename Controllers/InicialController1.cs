@@ -57,6 +57,23 @@ namespace Compraí____Listas_compartilhadas.Controllers
                                            })
                                            .ToList();
 
+                // Multiplica Qtd x Preço de cada item e soma tudo para dar o Total
+                decimal totalCompra = itensDaLista.Sum(item => item.Quantidade * item.Preco);
+
+                // Divide por 2 para achar a parte de cada um
+                decimal contribuicao = totalCompra / 2;
+
+                // Guarda formatado bonitinho como dinheiro (ex: 45,90) nas ViewBags
+                //ViewBag.TotalCompra = totalCompra.//
+                //ViewBag.Contribuicao = contribuicao.//ToString("N2");
+                //ViewBag.TotalCompra = 0.00;
+                //ViewBag.Contribuicao = 0.00;
+                //return View(itensDaLista);
+
+                // 🧮 Cálculos e formatação correta nas ViewBags
+                ViewBag.TotalCompra = totalCompra.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
+                ViewBag.Contribuicao = contribuicao.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"));
+
                 return View(itensDaLista);
             }
 
